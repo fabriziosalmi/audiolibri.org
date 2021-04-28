@@ -1,9 +1,11 @@
 <?php
+// script args:   php-cgi -f script.php query=WIKIPEDIA_PAGE pars=NUMBER_OF_PARAGRAPHS
+// example use:   php-cgi -f wiki2data.php query=Italo_Calvino pars=50
 
 // bootstrap
 $paragraphs = $_GET["pars"];
 $query = $_GET["query"];
-$queryclean = str_replace(" ", "_", $query);
+// $queryclean = str_replace(" ", "_", $query);
 // more filters
 
 // wikipedia text
