@@ -5,8 +5,7 @@
 // bootstrap
 $paragraphs = $_GET["pars"];
 $query = $_GET["query"];
-// $queryclean = str_replace(" ", "_", $query);
-
+$query2hash = str_replace(" ", "_", $query);
 
 // wikipedia text
 $url = "https://it.wikipedia.org/w/api.php?format=json&action=query&redirect=1&prop=extracts&explaintext=1&titles=".$query;
@@ -38,7 +37,7 @@ $image_content = $image_url->source;
 $image_content_data = file_get_contents($image_content);
 
 // hash
-$hash = md5(rand(0,99999999)."fhoweufwe");
+$hash = md5($query2hash);
 
 // filenames
 $wiki_txt = "tmp/wiki_".$hash.".txt";
