@@ -6,7 +6,7 @@
 $paragraphs = $_GET["pars"];
 $query = $_GET["query"];
 // $queryclean = str_replace(" ", "_", $query);
-// more filters
+
 
 // wikipedia text
 $url = "https://it.wikipedia.org/w/api.php?format=json&action=query&redirect=1&prop=extracts&explaintext=1&titles=".$query;
@@ -14,6 +14,7 @@ $response = json_decode(file_get_contents($url, true));
 $page = $response->query->pages;
 $api_text = ((object)reset($page)->extract);
 $content = $api_text->scalar;
+
 // wikipedia text content filter
 $content_filter = array("\n\n\n", "\n\n");
 $content = str_replace($content_filter, "\n", $content);
